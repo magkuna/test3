@@ -1,0 +1,74 @@
+<<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class ='container'></div>
+    <script>
+
+        class Counter {
+            constructor() {
+
+
+            this.number = 0 
+
+            this.render()
+        }
+
+        inc() {
+            this.number = this.number + 1
+
+            console.log(this)
+
+            this.render()
+        }
+        dec() {
+            this.number = this.number - 1
+
+            this.render()
+        }
+
+       render() {
+            document.body.innerHTML = ''
+
+            const h1 = document.createElement('h1');
+            const button = document.createElement('button');
+	        const button2 = document.createElement('button');
+            h1.innerText = this.number;
+            button.innerText = "-->";
+            button2.innerText = '<--';
+            
+
+            button.addEventListener(
+                'click',
+                this.inc.bind(this)
+            );
+
+
+            button2.addEventListener(
+                'click',
+                this.dec.bind(this)
+            );
+         
+            document.body.appendChild(h1);
+            document.body.appendChild(button);
+	        document.body.appendChild(button2);
+            
+        }
+    }
+
+    </script>
+
+    <script> 
+    const counter = new Counter('container')
+    </script>
+
+</body>
+
+</html>
